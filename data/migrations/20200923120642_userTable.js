@@ -14,8 +14,7 @@ exports.up = function(knex) {
         tbl.text('password', 128)
             .notNullable()
             .unique();
-    })
-  
+    }) 
 };
 
 exports.down = function(knex) {
