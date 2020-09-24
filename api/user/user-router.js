@@ -1,9 +1,8 @@
+const express = require('express')
 const Users = require('./user-model.js');
-
 const router = express.Router();
-
 const restricted = require('../auth/authenticate-middleware');
-const { delete } = require('../../data/dbConfig.js');
+
 
 router.get('/', (req, res) => {
     Users.find()
