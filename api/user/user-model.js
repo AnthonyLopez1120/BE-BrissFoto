@@ -1,12 +1,3 @@
-module.exports = {
-    find,
-    findBy,
-    findById,
-    add,
-    update,
-    remove
-}
-
 const db = require('../../data/dbConfig.js')
 
 const find = () => {
@@ -15,28 +6,37 @@ const find = () => {
 
 const findById = (id) => {
     return db('user')
-        .where({ id })
-        .first()
+    .where({ id })
+    .first()
 }
 
 const findBy = (filter) => {
     return db('user')
-        .where(filter)
+    .where(filter)
 }
 
 const add = (user) => {
     return db('user')
-        .insert(user, 'id')
+    .insert(user, "id")
 }
 
 const update = (changes, id) => {
     return db('user')
-        .where({ id })
-        .update(changes)
+    .where({ id })
+    .update(changes)
 }
 
 const remove = (id) => {
     return db('user')
-        .where({ id })
-        .del()
+    .where({ id })
+    .del()
+}
+
+module.exports = {
+    find,
+    findBy,
+    findById,
+    add,
+    update,
+    remove
 }
