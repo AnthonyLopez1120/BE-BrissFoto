@@ -10,17 +10,17 @@ router.post('/register', (req, res) => {
     user.password = hash
 
     User.add(user)
-        .then(newUser => {
+        .then(newUser =>{
             if (user) {
                 const token = generateToken(user)
                 res.status(200).json({
-                    message: `Bienvenidos amor ${user.user-name}`,
+                    message: `Bienvenidos amor`,
                     token,
                     newUser
-                })
+                });
             }else{
                 res.status(401).json({ message: "Invalid registration, try again" })
-            }
+            };
             })
             .catch(err => {
                 res.status(500).json({ message: "Error adding user", err })
@@ -30,23 +30,22 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const { username, password } = req.body
 
-    User.findById({ username })
+    User.findBy({ username })
         .first()
         .then(user => {
-            console.log(user)
             if(user && bcrypt.compareSync(password, user.password)){
                 const token = generateToken(user)
                 res.status(200).json({
-                    message: `Hola mi amor ${user.username}`,
+                    message: 'hello',
                     token,
-                    user,
-                })
+                    user
+                });
             }else{
                 res.status(401).json({ message: 'Incorrect password, try again'})
             }
         })
         .catch(err => {
-            res.status(500).json({ message: 'An error occured while logging in', err})
+            res.status(500).json({ message: 'An error occured while logging in111', err})
         })
 });
 
@@ -61,4 +60,4 @@ function generateToken(user){
     return jwt.sign(payload, secret.jwtSecret, options)
 }
 
-module.exports = router
+module.exports = router;
