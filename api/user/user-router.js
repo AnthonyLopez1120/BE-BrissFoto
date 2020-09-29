@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         res.json(users);
     })
     .catch(err => {
-        res.status(500).json({message: 'Failed to retrieve usrs', err})
+        res.status(500).json({message: 'Failed to retrieve users', err})
     });
 });
 

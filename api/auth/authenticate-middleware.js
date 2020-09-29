@@ -3,7 +3,7 @@ const secrets = require('../config/secret')
 
 module.exports = (req, res, next) => {
     const token = req.headers.authorization
-    if(token){
+    if (token) {
         jwt.verify(token, secrets.jwtSecret, (error, decodedToken) => {
             if(error){
                 console.log(error)
@@ -14,6 +14,6 @@ module.exports = (req, res, next) => {
             }
         })
     }else{
-        res.status(500).json({ message: "You are not logged in, please try loggin in"})
+        res.status(500).json({ message: "You are not logged in, please try loggin in", err})
     }
 };

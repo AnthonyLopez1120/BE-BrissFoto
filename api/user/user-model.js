@@ -6,9 +6,9 @@ const find = () => {
 
 const findById = (id) => {
     return db('user')
-    .where({ id })
-    .first()
-}
+       .where({ id })
+       .first()
+ }
 
 const findBy = (filter) => {
     return db('user')
@@ -16,8 +16,8 @@ const findBy = (filter) => {
 }
 
 const add = (user) => {
-    return db('user')
-    .insert(user, "id")
+    return db("user")
+  .insert(user);
 }
 
 const update = (changes, id) => {
