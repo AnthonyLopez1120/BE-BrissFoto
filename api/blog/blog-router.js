@@ -47,7 +47,7 @@ router.put("/:id", (req, res) => {
   Blog.findById(id)
     .then((blog) => {
       if (blog) {
-        Blog.update(changes, id).then((updateBlog) => {
+        Blog.edit(changes, id).then((updateBlog) => {
           res.json(updateBlog);
         });
       } else {
