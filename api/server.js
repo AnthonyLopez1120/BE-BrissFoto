@@ -5,7 +5,7 @@ const morgan = require("morgan");
 
 const usersRouter = require("./user/user-router.js");
 const authRouter = require("./auth/auth-router.js");
-const blogRouter = requre("/blog/blog-router.js");
+const blogRouter = requre("./blog/blog-router.js");
 
 const server = express();
 
